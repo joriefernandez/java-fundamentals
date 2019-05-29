@@ -5,18 +5,58 @@ package basiclibrary;
 
 import org.junit.Test;
 
+import static basiclibrary.Library.containsDuplicates;
 import static basiclibrary.Library.roll;
 import static org.junit.Assert.*;
 
 public class LibraryTest {
+
+    //Test roll method
     @Test
     public void testRoll() {
         int[] values = new int[]{1,2,3,4};
         assertEquals("array length should be the same", values.length, roll(4).length);
     }
 
+    //Test if value is zero
     @Test (expected = IllegalArgumentException.class)
     public void testRollZeroN() {
         roll(0);
     }
+
+    //Test if value is negative
+    @Test (expected = IllegalArgumentException.class)
+    public void testRollNegativeN() {
+        roll(-1);
+    }
+
+    //Test containsDuplicates Method
+
+    //Test if array is null
+    @Test (expected = IllegalArgumentException.class)
+    public void testContainsDuplicatesEmptyArray() {
+        containsDuplicates(null);
+    }
+
+    //Test if there are no duplicates
+    @Test
+    public void testContainsDuplicateUniqueArray() {
+        int[] testArray = new int[]{1,2,3,4,5};
+        assertFalse("Unique values should return false.", containsDuplicates(testArray));
+    }
+
+    //Test if there are duplicates
+    @Test
+    public void testContainsDuplicatesDuplicateArray() {
+        int[] testArray = new int[]{1,2,3,4,1};
+        assertTrue("Duplicated values should return false.", containsDuplicates(testArray));
+    }
+
+    //Test if there is only one value
+    @Test
+    public void testContainsDuplicatesOneValueArray() {
+        int[] testArray = new int[]{5};
+        assertFalse("Duplicated values should return false.", containsDuplicates(testArray));
+    }
+
 }

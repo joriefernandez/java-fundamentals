@@ -31,6 +31,33 @@ public class Library {
         return result;
     }
 
+    /**
+     * Method to check if array has duplicates.
+     * @param inputArray array to be checked
+     * @return true: there is a duplicate value
+     *         false: no duplicates found
+     */
+    public static boolean containsDuplicates(int[] inputArray){
+        //Check if array is null. If so, throw error message
+        if(inputArray == null){
+            throw new IllegalArgumentException("Array is null.");
+        }
+        //Sort array
+        Arrays.sort(inputArray);
+        //initialize previous value to first array element
+        int prev = inputArray[0];
+
+        //Loop through the array to check if there is a duplicated value
+        for(int index = 1; index < inputArray.length; index++){
+            //Check if current element is the same as previous. If so, return true.
+            if(prev == inputArray[index]){
+                return true;
+            }
+        }
+
+        //return false if no duplicate found
+        return false;
+    }
 
     
 }
