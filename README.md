@@ -8,3 +8,10 @@ Main.java contains the following methods:
 2. flipNHeads
 3. clock
 
+### [Lab 2: Arrays,for loops, imports, ArrayList](https://github.com/joriefernandez/java-fundamentals/tree/master/basiclibrary)
+Src folder contains [Library class](https://github.com/joriefernandez/java-fundamentals/blob/master/basiclibrary/src/main/java/basiclibrary/Library.java) and [LibraryTest class](https://github.com/joriefernandez/java-fundamentals/blob/master/basiclibrary/src/test/java/basiclibrary/LibraryTest.java) for methods:
+1. Roll Dice - roll
+2. Contains Duplicates - containsDuplicates
+3. Calculating Averages - calculateAverage
+4. Array of arrays - calculateArraysAverage
+
