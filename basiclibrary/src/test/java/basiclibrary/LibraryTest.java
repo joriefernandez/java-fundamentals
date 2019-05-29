@@ -5,8 +5,7 @@ package basiclibrary;
 
 import org.junit.Test;
 
-import static basiclibrary.Library.containsDuplicates;
-import static basiclibrary.Library.roll;
+import static basiclibrary.Library.*;
 import static org.junit.Assert.*;
 
 public class LibraryTest {
@@ -58,5 +57,84 @@ public class LibraryTest {
         int[] testArray = new int[]{5};
         assertFalse("Duplicated values should return false.", containsDuplicates(testArray));
     }
+
+    //Test calculateAverage method
+
+    //Test if there is only one value
+    @Test
+    public void testCalculateAverageOneValueArray() {
+        int[] testArray = new int[]{5};
+        assertEquals("Average should be the same as the value.", 5,
+                calculateAverage(testArray), 0);
+    }
+
+    //Test average
+    @Test
+    public void testCalculateAverageArray() {
+        int[] testArray = new int[]{2,4,5,7};
+        assertEquals("Average should be correctly calculated.", 4.5,
+                calculateAverage(testArray), 0.01);
+    }
+
+    //Test average with zero value
+    @Test
+    public void testCalculateAverageArrayWithZero() {
+        int[] testArray = new int[]{0,4,5,7};
+        assertEquals("Average should be correctly calculated.", 4.0,
+                calculateAverage(testArray), 0.01);
+    }
+
+    //Test average with zero value
+    @Test
+    public void testCalculateAverageArrayZero() {
+        int[] testArray = new int[]{0};
+        assertEquals("Average should be correctly calculated.", 0,
+                calculateAverage(testArray), 0.01);
+    }
+
+    //Test if array is null
+    @Test (expected = IllegalArgumentException.class)
+    public void testCalculateAverageEmptyArray() {
+        containsDuplicates(null);
+    }
+
+    // Test for calculateArraysAverage
+
+    //Test if array is null
+    @Test (expected = IllegalArgumentException.class)
+    public void testCalculateArraysAverageEmptyArray() {
+        calculateArraysAverage(null);
+    }
+
+    //Test average with zero value
+    @Test
+    public void testCalculateArraysAverage() {
+        int[][] weeklyMonthTemperatures = {
+                {66, 64, 58, 65, 71, 57, 60},
+                {57, 65, 65, 70, 72, 65, 51},
+                {55, 54, 60, 53, 59, 57, 61},
+                {65, 56, 55, 52, 55, 62, 57}
+        };
+        assertEquals("Average should be correctly calculated.", 57,
+                calculateArraysAverage(weeklyMonthTemperatures), 0.01);
+    }
+
+    //Test average with duplicate minimum value
+    @Test
+    public void testCalculateArraysAverageOne() {
+        int[][] weeklyMonthTemperatures = {
+                {1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1},
+        };
+        assertEquals("Average should be correctly calculated.", 1,
+                calculateArraysAverage(weeklyMonthTemperatures), 0.01);
+    }
+
+    //TODO
+    //test if the array is empty
+    //test if the generated random numbers in roll
+    //test if values are zero
 
 }

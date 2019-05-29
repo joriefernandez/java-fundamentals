@@ -39,9 +39,7 @@ public class Library {
      */
     public static boolean containsDuplicates(int[] inputArray){
         //Check if array is null. If so, throw error message
-        if(inputArray == null){
-            throw new IllegalArgumentException("Array is null.");
-        }
+        checkNullArray(inputArray);
         //Sort array
         Arrays.sort(inputArray);
         //initialize previous value to first array element
@@ -59,5 +57,56 @@ public class Library {
         return false;
     }
 
-    
+    /**
+     * Method to compute the average of array values.
+     * @param inputArray contains the values to be computed
+     * @return average of the array values
+     */
+    public static double calculateAverage(int[] inputArray){
+        //Check if array is null. If so, throw error message
+        checkNullArray(inputArray);
+        //sum
+        double sum = 0;
+
+        //Loop through array to calculate sum
+        for(int index = 0; index < inputArray.length; index++){
+            sum += inputArray[index];
+        }
+
+
+        //return average
+        return sum/inputArray.length;
+    }
+
+
+    /**
+     * method to return the minimum average in the array
+     * @param inputArray array of array values
+     * @return the lowest average
+     */
+    public static double calculateArraysAverage(int[][] inputArray){
+        //Check if array is null. If so, throw error message
+        if(inputArray == null){
+            throw new IllegalArgumentException("Arrays are null.");
+        }
+        //Initialize minimum average
+        double minAverage = Integer.MAX_VALUE;
+
+        //Loop through the array and compute each array average
+        for(int index = 0; index < inputArray.length; index++){
+            //Check minimum value
+            minAverage = Math.min(minAverage, calculateAverage(inputArray[index]));
+        }
+
+        return minAverage;
+    }
+
+
+    //Helper to check if array is null
+    private static void checkNullArray(int[] inputArray){
+        //Check if array is null. If so, throw error message
+        if(inputArray == null){
+            throw new IllegalArgumentException("Array is null.");
+        }
+    }
 }
