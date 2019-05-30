@@ -5,6 +5,9 @@ package basiclibrary;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static basiclibrary.Library.*;
 import static org.junit.Assert.*;
 
@@ -132,9 +135,75 @@ public class LibraryTest {
                 calculateArraysAverage(weeklyMonthTemperatures), 0.01);
     }
 
+    // Test for the analyzeWeather method
+    @Test
+    public void testAnalyzeWeather() {
+        int[][] weeklyMonthTemperatures = {
+                {66, 64, 58, 65, 71, 57, 60},
+                {57, 65, 65, 70, 72, 65, 51},
+                {55, 54, 60, 53, 59, 57, 61},
+                {65, 56, 55, 52, 55, 62, 57}
+        };
+
+
+        assertEquals("Method should display unseen temperatures.", "Never saw temperature: 63 67 68 69 ",
+                analyzeWeather(weeklyMonthTemperatures));
+
+    }
+
+    // Test for the analyzeWeather method
+    @Test
+    public void testAnalyzeWeatherOneValue() {
+        int[][] weeklyMonthTemperatures = {
+                {1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1},
+        };
+
+
+        assertEquals("Method should display unseen temperatures.", "Never saw temperature: ",
+                analyzeWeather(weeklyMonthTemperatures));
+
+    }
+
+    // Test for the analyzeWeather method
+    @Test
+    public void testTally() {
+        List<String> votes = new ArrayList<>();
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Shrub");
+        votes.add("Hedge");
+        votes.add("Shrub");
+        votes.add("Bush");
+        votes.add("Hedge");
+        votes.add("Bush");
+
+
+        assertEquals("Method should display the winner.", "Bush",
+                tally(votes));
+
+    }
+
+    // Test for the analyzeWeather method when empty
+    @Test
+    public void testTallyEmpty() {
+        List<String> votes = new ArrayList<>();
+        assertEquals("Method should display the winner.", "",
+                tally(votes));
+
+    }
+
+
+
+
     //TODO
     //test if the array is empty
     //test if the generated random numbers in roll
     //test if values are zero
+
+
 
 }

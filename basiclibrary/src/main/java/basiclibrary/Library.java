@@ -3,7 +3,12 @@
  */
 package basiclibrary;
 
+import jdk.swing.interop.SwingInterOpUtils;
+
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 
 public class Library {
     private static final int MIN_NUMBER = 1;
@@ -101,6 +106,55 @@ public class Library {
         return minAverage;
     }
 
+    /**
+     * Function to determine which temperatures are not in the list
+     * @param input 2d-array with the monthly temperatures
+     * @return string that contains all unseen temperatures
+     */
+    public static String analyzeWeather(int[][] input){
+        //Set to contains all unique temperatures
+        HashSet<Integer> set = copyToHashSet(input);
+
+        // Result
+        StringBuilder result = new StringBuilder("Never saw temperature: ");
+        // Maximum temperature
+        int max = findMaximum(set);
+
+        //Minimum temperature
+        int min = findMinimum(set);
+
+        //Iterate between the min and max and check if the current temperature
+        // is not in the set.
+        for(int temp = min; temp <= max; temp++){
+            if(!(set.contains(temp))){
+                result.append(temp);
+                result.append(" ");
+            }
+        }
+        //return result
+        return result.toString();
+    }
+
+    /**
+     * Function to return who got the most number of votes
+     * @param votes list of voted names
+     * @return winner with most votes
+     */
+    public static String tally(List<String> votes) {
+        HashMap<String, Integer> map = copyVotes(votes);
+        String winner="";
+        int totalVotes = -1;
+
+        for (HashMap.Entry<String, Integer> entry : map.entrySet()){
+            if (totalVotes < entry.getValue()) {
+                totalVotes = entry.getValue();
+                winner = entry.getKey();
+            }
+        }
+
+        return winner;
+    }
+
 
     //Helper to check if array is null
     private static void checkNullArray(int[] inputArray){
@@ -108,5 +162,52 @@ public class Library {
         if(inputArray == null){
             throw new IllegalArgumentException("Array is null.");
         }
+    }
+
+
+    //Helper method to find maximum value
+    private static int findMaximum(HashSet<Integer> theSet){
+        int maxValue = Integer.MIN_VALUE;
+
+        for(Integer cur: theSet) {
+            maxValue = Math.max(maxValue, cur);
+        }
+
+        return maxValue;
+
+    }
+    //Helper method to find minimum value
+    private static int findMinimum(HashSet<Integer> theSet){
+        int minValue = Integer.MAX_VALUE;
+        for(Integer cur: theSet) {
+            minValue = Math.min(minValue, cur);
+        }
+        return minValue;
+
+    }
+
+    //Helper method to copy array to hashset
+    private static HashSet<Integer> copyToHashSet(int[][] input){
+        HashSet<Integer> set = new HashSet<>();
+        for(int index = 0; index < input.length; index++) {
+            for(int j = 0; j < input[index].length; j++){
+                set.add(input[index][j]);
+            }
+        }
+        return set;
+    }
+
+    //Helper method to copy list to hashmap
+    private static HashMap<String, Integer> copyVotes(List<String> theVotes){
+        HashMap<String, Integer> theMap = new HashMap<>();
+        for(String str: theVotes){
+            if(theMap.containsKey(str)){
+                theMap.put(str, (theMap.get(str) + 1));
+            } else{
+                theMap.put(str, 1);
+            }
+        }
+
+        return theMap;
     }
 }
