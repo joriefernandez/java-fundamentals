@@ -1,9 +1,8 @@
 package linter;
 
-import org.junit.Rule;
+
 import org.junit.Test;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
