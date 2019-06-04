@@ -25,6 +25,16 @@ linter src folder contains [Linter class](https://github.com/joriefernandez/java
 
 ### [Lab 4: Inheritance](https://github.com/joriefernandez/java-fundamentals/tree/master/inheritance)
 
+To run the [Restaurant test](https://github.com/joriefernandez/java-fundamentals/blob/master/inheritance/src/test/java/inheritance/RestaurantTest.java) and [Review test](https://github.com/joriefernandez/java-fundamentals/blob/master/inheritance/src/test/java/inheritance/ReviewTest.java), clone the repo and go the directory then run: `./gradlew test`
+#### [Restaurant](https://github.com/joriefernandez/java-fundamentals/blob/master/inheritance/src/main/java/inheritance/Restaurant.java) and [Review](https://github.com/joriefernandez/java-fundamentals/blob/master/inheritance/src/main/java/inheritance/Review.java) classes are found under src folder.
+#### Restaurant Methods
+* Initialization: `Restaurant sample = new Restaurant("name", number category")`
+1. getters - to get the fields
+2. toString - to print the restaurant properties
+3. addReview - to add review. Adding updates the star rating of the restaurant
+#### Review Methods
+1. toString - to print the review
+
 
 
 
