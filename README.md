@@ -23,6 +23,9 @@ basiclibrary src folder contains [Library class](https://github.com/joriefernand
 linter src folder contains [Linter class](https://github.com/joriefernandez/java-fundamentals/blob/master/linter/src/main/java/linter/Linter.java) and [LinterTest class](https://github.com/joriefernandez/java-fundamentals/blob/master/linter/src/test/java/linter/LinterTest.java) with created test files under resources directory for method:
 1. linterJS
 
+### [Lab 4: Inheritance](https://github.com/joriefernandez/java-fundamentals/tree/master/inheritance)
+
+
 
 
 
