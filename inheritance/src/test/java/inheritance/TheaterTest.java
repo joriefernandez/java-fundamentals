@@ -165,34 +165,50 @@ public class TheaterTest {
 
     }
 
-    //Test addReview with another movie review
+    //Test addReview with empty movie
     @Test
     public void testAddReviewValidEmptyMovie(){
         MovieReview theReview = new MovieReview("myName", "my current description", 5,
-                "classic movie");
+                null);
         Theater test = new Theater("CenturyMovie");
         test.addReview(theReview);
         //expected result
         Map<String, List<MovieReview>> expected = new HashMap<>();
         List<MovieReview> list = new LinkedList<>();
         list.add(theReview);
-        expected.put("classic movie", list);
-
-        assertEquals("Reviews should be the same", expected, test.getReviews());
-
-        //add another review
-        MovieReview another = new MovieReview("myOtherName", "my another description", 1,
-                "super bad movie");
-        List<MovieReview> anotherReview = new LinkedList<>();
-        anotherReview.add(another);
-        expected.put("super bad movie", anotherReview);
-
-        //add to theater
-        test.addReview(another);
+        expected.put(null, list);
 
         assertEquals("Reviews should be the same", expected, test.getReviews());
 
     }
+
+    //Test with one review
+    @Test
+    public void testToStringOneReview(){
+        MovieReview theReview = new MovieReview("myName", "my current description", 5,
+                "classic movie");
+        Theater test = new Theater("CenturyMovie");
+        test.addReview(theReview);
+        //expected result
+
+        String expected = "{Theater: name = CenturyMovie, movies = [], " +
+        "reviews = {classic movie=[{Review: description= my current description, " +
+                "author= myName, movie=classic movie, rating= 5}]}}";
+        assertEquals("Shop values should be the same.", expected, test.toString());
+    }
+
+    //Test with one review
+    @Test
+    public void testToString(){
+
+        Theater test = new Theater("CenturyMovie");
+
+        //expected result
+
+        String expected = "{Theater: name = CenturyMovie, movies = [], reviews = {}}";
+        assertEquals("Shop values should be the same.", expected, test.toString());
+    }
+
 
 
 
