@@ -1,9 +1,10 @@
 package inheritance;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
-public class Restaurant {
+public class Restaurant implements Reviewable {
     private String name;
     private int starRating;
     private int priceCategory;
@@ -14,7 +15,7 @@ public class Restaurant {
         this.name = validateRestaurantName(name);
         this.priceCategory = validatePriceCategory(priceCategory);
         this.starRating = 0;
-        this.reviews = new ArrayList<>();
+        this.reviews = new LinkedList<>();
     }
 
 
