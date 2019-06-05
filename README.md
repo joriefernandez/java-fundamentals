@@ -53,7 +53,7 @@ To run the [Restaurant test](https://github.com/joriefernandez/java-fundamentals
 1. toString - to print the review
 2. getters -  to get each fields
 #### Reviewable Interface
-Implemented by other classes
+* Implemented by other classes
 1. addReview
 
 
