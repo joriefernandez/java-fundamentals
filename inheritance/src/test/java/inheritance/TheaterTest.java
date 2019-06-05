@@ -2,9 +2,7 @@ package inheritance;
 
 import org.junit.Test;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -110,8 +108,90 @@ public class TheaterTest {
 
     //Test addReview
     @Test
-    public void testAddReviewValid(){
-        
+    public void testAddReviewValidSameMovie(){
+        MovieReview theReview = new MovieReview("myName", "my current description", 5,
+                "classic movie");
+        Theater test = new Theater("CenturyMovie");
+        test.addReview(theReview);
+        //expected result
+        Map<String, List<MovieReview>> expected = new HashMap<>();
+        List<MovieReview> list = new LinkedList<>();
+        list.add(theReview);
+        expected.put("classic movie", list);
+
+        assertEquals("Reviews should be the same", expected, test.getReviews());
+
+        //add another review
+        MovieReview another = new MovieReview("myName", "my another description", 1,
+                "classic movie");
+        //add to expected
+        list.add(another);
+
+        expected.put("classic movie", list);
+
+        //add to theater
+        test.addReview(another);
+
+        assertEquals("Reviews should be the same", expected, test.getReviews());
+
+    }
+
+    //Test addReview with another movie review
+    @Test
+    public void testAddReviewValidAnotherMovie(){
+        MovieReview theReview = new MovieReview("myName", "my current description", 5,
+                "classic movie");
+        Theater test = new Theater("CenturyMovie");
+        test.addReview(theReview);
+        //expected result
+        Map<String, List<MovieReview>> expected = new HashMap<>();
+        List<MovieReview> list = new LinkedList<>();
+        list.add(theReview);
+        expected.put("classic movie", list);
+
+        assertEquals("Reviews should be the same", expected, test.getReviews());
+
+        //add another review
+        MovieReview another = new MovieReview("myOtherName", "my another description", 1,
+                "super bad movie");
+        List<MovieReview> anotherReview = new LinkedList<>();
+        anotherReview.add(another);
+        expected.put("super bad movie", anotherReview);
+
+        //add to theater
+        test.addReview(another);
+
+        assertEquals("Reviews should be the same", expected, test.getReviews());
+
+    }
+
+    //Test addReview with another movie review
+    @Test
+    public void testAddReviewValidEmptyMovie(){
+        MovieReview theReview = new MovieReview("myName", "my current description", 5,
+                "classic movie");
+        Theater test = new Theater("CenturyMovie");
+        test.addReview(theReview);
+        //expected result
+        Map<String, List<MovieReview>> expected = new HashMap<>();
+        List<MovieReview> list = new LinkedList<>();
+        list.add(theReview);
+        expected.put("classic movie", list);
+
+        assertEquals("Reviews should be the same", expected, test.getReviews());
+
+        //add another review
+        MovieReview another = new MovieReview("myOtherName", "my another description", 1,
+                "super bad movie");
+        List<MovieReview> anotherReview = new LinkedList<>();
+        anotherReview.add(another);
+        expected.put("super bad movie", anotherReview);
+
+        //add to theater
+        test.addReview(another);
+
+        assertEquals("Reviews should be the same", expected, test.getReviews());
+
     }
 
 

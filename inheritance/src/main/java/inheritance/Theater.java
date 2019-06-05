@@ -34,7 +34,13 @@ public class Theater{
     public void addReview(MovieReview theReview) {
 
         String curMovie = theReview.getMovie();
-        List<MovieReview> res = reviews.get(curMovie);
+        List<MovieReview> res = new LinkedList<>();
+
+        if(reviews.containsKey(curMovie)){
+            res = reviews.get(curMovie);
+
+        }
+
         res.add(theReview);
         reviews.put(curMovie, res);
 
