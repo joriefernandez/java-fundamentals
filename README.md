@@ -23,7 +23,7 @@ basiclibrary src folder contains [Library class](https://github.com/joriefernand
 linter src folder contains [Linter class](https://github.com/joriefernandez/java-fundamentals/blob/master/linter/src/main/java/linter/Linter.java) and [LinterTest class](https://github.com/joriefernandez/java-fundamentals/blob/master/linter/src/test/java/linter/LinterTest.java) with created test files under resources directory for method:
 1. linterJS
 
-### [Lab 4: Inheritance](https://github.com/joriefernandez/java-fundamentals/tree/master/inheritance)
+### [Lab 4-5: Inheritance](https://github.com/joriefernandez/java-fundamentals/tree/master/inheritance)
 
 To run the [Restaurant test](https://github.com/joriefernandez/java-fundamentals/blob/master/inheritance/src/test/java/inheritance/RestaurantTest.java) and [Review test](https://github.com/joriefernandez/java-fundamentals/blob/master/inheritance/src/test/java/inheritance/ReviewTest.java), clone the repo and go the directory then run: `./gradlew test`
 #### [Restaurant](https://github.com/joriefernandez/java-fundamentals/blob/master/inheritance/src/main/java/inheritance/Restaurant.java) and [Review](https://github.com/joriefernandez/java-fundamentals/blob/master/inheritance/src/main/java/inheritance/Review.java) classes are found under src folder.
@@ -36,6 +36,25 @@ To run the [Restaurant test](https://github.com/joriefernandez/java-fundamentals
 * Initialization: `Review [variable] = new Review(["author"], ["description"], [number rating])`
 1. toString - to print the review
 2. getters -  to get each fields
+#### Shop Methods
+* Initialization: `Shop [variable] = new Shop(["name"], ["description"], [number rating])`
+1. toString - to print the review
+2. getters -  to get each fields
+3. addReview - to add review
+#### Theater Methods
+* Initialization: `Theater [variable] = new Theater(["name"])`
+1. toString - to print the review
+2. getters -  to get each fields
+3. addReview - to add review
+4. addMovie - add movie to the theater
+5. removeMovie - remove movie from the theater
+#### MovieReview Methods
+* Initialization: `MovieReview [variable] = new MovieReview(["author"], ["description"], [number rating], [movie])`
+1. toString - to print the review
+2. getters -  to get each fields
+#### Reviewable Interface
+Implemented by other classes
+1. addReview
 
 
 
